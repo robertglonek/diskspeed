@@ -1,5 +1,9 @@
 # Read disk one block at a time and report speed at intervals
 
+## Download
+
+Get the binary from [here](https://github.com/robertglonek/diskspeed/releases), download it for your OS, `chmod +x` to make it executable and run it.
+
 ## Usage
 
 ```
