@@ -34,6 +34,7 @@ func (m *mainStruct) main() int {
 		flag.PrintDefaults()
 		return 1
 	}
+	fmt.Printf("[%s] Opening %s for reading\n", time.Now().String(), m.disks[0])
 	disk := m.disks[0]
 	fh, err := os.Open(disk)
 	if err != nil {
@@ -112,6 +113,9 @@ func (m *mainStruct) printSizeTotal(size uint64, startTime time.Time) {
 		total = fmt.Sprintf("%d B", size)
 	}
 	timeDelta := uint64(time.Now().Sub(startTime).Seconds())
+	if timeDelta == 0 {
+		timeDelta = 1
+	}
 	if size/timeDelta >= 1048576 {
 		average = fmt.Sprintf("%d MB/s", size/timeDelta/1048576)
 	} else if size/timeDelta >= 1024 {
